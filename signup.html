@@ -1,76 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- <script type="javascript/text" src="email.js"></script>
+    <script type="javascript/text" src="password.js"></script>
+    <script type="javascript/text" src="phoneNo.js"></script> -->
 </head>
+
 <body>
     <div class="container">
         <div class="row">
-<div class="col col-12 col-sm-6 col-md-12">
-    <table class="table">
-    <tr>
-        <td>Name</td>
-        <td><input type="text" class="form-control"></td>
-    </tr>
-    <tr>
-        <td>Age</td>
-        <td><input type="text" class="form-control"></td>
-    </tr>
-    <tr>
-        <td>DOB</td>
-        <td><input type="date" class="form-control"></td>
-    </tr>
-    <tr>
-        <td>Email</td>
-        <td><input type="text" class="form-control"></td>
-    </tr>
-    <tr>
-        <td>Place</td>
-        <td><input type="text" class="form-control"></td>
-    </tr>
-    <tr>
-        <td>District</td>
-        <td><select name="" id="" class="form-control">
-            <option value="Kasargod">Kasargod</option>
-            <option value="Kannur">Kannur</option>
-            <option value="Kozhikode">Kozhikode</option>
-            <option value="Wayanad">Wayanad</option>
-            <option value="Palakkad">Palakkad</option>
-            <option value="Idukki">Idukki</option>
-            <option value="Ernakulam">Ernakulam</option>
-            <option value="Trissur">Trissur</option>
-            <option value="Kottayam">Kottayam</option>
-            <option value="Malappuram">Malappuram</option>
-            <option value="Kollam">Kollam</option>
-            <option value="Pathanamthitta">Pathanamthitta</option>
-            <option value="Alappuzha">Alappuzha</option>
-            <option value="Thiruvananthapuram">Thiruvananthapuram</option>
-        </select></td>
-    </tr>
-    <tr>
-        <td>Username</td>
-        <td><input type="text" class="form-control"></td>
-    </tr>
-    <tr>
-        <td>Password</td>
-        <td><input type="password" class="form-control"></td>
-    </tr>
-    <tr>
-        <td>Confirm Password</td>
-        <td><input type="password" class="form-control"></td>
-    </tr>
-    <br>
-    <tr>
-        <td><button class="btn btn-success">RESET</button></td>
-        <td><button class="btn btn-danger">REGISTER</button></td>
-    </tr>
-</table>
-</div>
-</div>
-</div>
+            <div class="col col-12 col-sm-6 col-md-12">
+                <form name="register">
+                    <table class="table">
+                        <tr>
+                            <td>Name</td>
+                            <td><input type="text" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td>Age</td>
+                            <td><input type="text" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td>DOB</td>
+                            <td><input type="date" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td><input type="text" class="form-control" id="email" onchange="ValidateEmail();"></td>
+                        </tr>
+                        <tr>
+                            <td>Place</td>
+                            <td><input type="text" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td>PhoneNo</td>
+                            <td><input type="text" class="form-control" id="phoneNo" onchange="phonenumber();"></td>
+                        </tr>
+                        <tr>
+                            <td>District</td>
+                            <td><select name="" id="" class="form-control">
+                                    <option value="Kasargod">Kasargod</option>
+                                    <option value="Kannur">Kannur</option>
+                                    <option value="Kozhikode">Kozhikode</option>
+                                    <option value="Wayanad">Wayanad</option>
+                                    <option value="Palakkad">Palakkad</option>
+                                    <option value="Idukki">Idukki</option>
+                                    <option value="Ernakulam">Ernakulam</option>
+                                    <option value="Trissur">Trissur</option>
+                                    <option value="Kottayam">Kottayam</option>
+                                    <option value="Malappuram">Malappuram</option>
+                                    <option value="Kollam">Kollam</option>
+                                    <option value="Pathanamthitta">Pathanamthitta</option>
+                                    <option value="Alappuzha">Alappuzha</option>
+                                    <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+                                </select></td>
+                        </tr>
+                        <tr>
+                            <td>Username</td>
+                            <td><input type="text" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td><input type="password" class="form-control" id="password" onchange="CheckPassword();"></td>
+                            <td>
+                                <p id="msg"></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Confirm Password</td>
+                            <td><input type="password" class="form-control" id="confirmPassword" onchange="CheckPassword();"></td>
+                            <td>
+                                <p id="msg"></p>
+                            </td>
+                        </tr>
+                        <br>
+                        <tr>
+                            <td><button class="btn btn-success">RESET</button></td>
+                            <td><button class="btn btn-danger" onclick="validate();">REGISTER</button></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function validate() {
+
+            CheckPassword();
+            CheckPassword();
+            phonenumber();
+            ValidateEmail();
+        }
+        function ValidateEmail() {
+            var inputText = document.getElementById("email");
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (inputText.value.match(mailformat)) {
+                // document.form1.text1.focus();
+                return true;
+            }
+            else {
+                alert("You have entered an invalid email address!");
+                // document.form1.text1.focus();
+                return false;
+            }
+        }
+
+
+        function CheckPassword() {
+            var password = document.getElementById("password");
+            if (password.length === 0) {
+                document.getElementById("msg").innerHTML = "";
+                return;
+            }
+            if (password.length < 8) {
+                return;
+            }
+            var paswd = /^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$/;
+            var matchedCase = new Array();
+            matchedCase.push("[A-Z]");      // Uppercase Alpabates
+            matchedCase.push("[0-9]");      // Numbers
+            matchedCase.push("[a-z]");
+            console.log(paswd);
+            // if (inputtxt.value.match(paswd)) {
+            console.log("password....");
+            var color = "";
+            var strength = "";
+            var ctr = 0;
+            for (var i = 0; i < matchedCase.length; i++) {
+                if (new RegExp(matchedCase[i]).test(paswd)) {
+                    ctr++;
+                }
+            }
+
+            switch (ctr) {
+
+                case 0: console.log("1 :" + ctr);
+                case 1: console.log("2 :" + ctr);
+                case 2: console.log("3 :" + ctr);
+                    strength = "Poor";
+                    color = "red";
+                    document.getElementById("msg").innerHTML = strength;
+                    document.getElementById("msg").style.color = color;
+                    break;
+                case 3:
+                    strength = "Medium";
+                    color = "orange";
+                    console.log("5 :" + ctr);
+                    document.getElementById("msg").innerHTML = strength;
+                    document.getElementById("msg").style.color = color;
+                    break;
+                case 4:
+                    strength = "Strong";
+                    color = "green";
+                    console.log("6 :" + ctr);
+                    document.getElementById("msg").innerHTML = strength;
+                    document.getElementById("msg").style.color = color;
+                    break;
+            }
+
+            // alert('Correct, try another...')
+            return true;
+            // }
+            // else {
+            //     alert('Wrong...!')
+            //     return false;
+            // }
+        }
+        function phonenumber() {
+            var inputtxt = document.getElementById("phoneNo");
+            var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+            if (inputtxt.value.match(phoneno)) {
+                return true;
+            }
+            else {
+                alert("Invalid PhoneNo");
+                return false;
+            }
+        }
+    </script>
 </body>
+
 </html>
